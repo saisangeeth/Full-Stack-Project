@@ -1,0 +1,216 @@
+version: "2"
+services:
+
+
+  eureka-server:
+    build: eureka-server/
+    container_name: eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8076:8076
+
+
+
+  gateway-service:
+    build: gateway-service/
+    container_name: gateway-service
+    restart: always
+    depends_on:
+      - eureka-server
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8080:8080
+  
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: always
+    hostname: localhost
+    network_mode: "host"
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: authuser
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - ./mysql_data_container:/data/db
+
+
+  rabbitmq:
+     image: rabbitmq:3.7.5-management
+     hostname: localhost
+     network_mode: "host"
+     ports:
+       - 5672:5672
+       - 15672:15672
+     volumes:
+       - $HOME/data/rabbitmq:/var/lib/rabbitmq/mnesia/rabbit@app-rabbitmq:cached
+     environment:
+       RABBITMQ_DEFAULT_USER: guest
+       RABBITMQ_DEFAULT_PASS: guest
+       RABBITMQ_DEFAULT_VHOST:
+
+
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    volumes:
+      - $HOME/data/db:/data/db
+    ports:
+      - 27017:27017
+
+
+  neo4j:
+    image: neo4j:4.2.3
+    container_name: neo4j
+    restart: always
+    network_mode: "host"
+    ports:
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - ./neo4j/data:/data
+    environment:
+      - NEO4J_AUTH=neo4j/test
+
+
+  contentsearch-service:
+    build: contentsearch-service/
+    container_name: contentsearch-service
+    depends_on:
+      - rabbitmq
+      - eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8085:8085
+
+  contentanalysing-service:
+    build: contentanalysing-service/
+    container_name: contentanalysing-service
+    depends_on:
+      - neo4j
+      - rabbitmq
+      - eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8070:8070
+
+
+  graphcommand-service:
+    build: graphcommand-service/
+    container_name: graphcommand-service
+    depends_on:
+      - neo4j
+      - rabbitmq
+      - eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8060:8060
+
+
+  graphquery-service:
+    build: graphquery-service/
+    container_name: graphquery-service
+    depends_on:
+      - neo4j
+      - eureka-server
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8097:8097
+        
+
+  userprofile-service:
+     build: userprofile-service/
+     container_name: userprofile-service
+     depends_on:
+       - mongo
+       - rabbitmq
+       - eureka-server
+     restart: always
+     network_mode: "host"
+     hostname: localhost
+     ports:
+       - 8096:8096
+  
+
+
+
+
+  authentication-service:
+    build: authentication-service/
+    container_name: authentication-service
+    restart: always
+    depends_on:
+      - mysql
+      - rabbitmq
+      - eureka-server
+    # hostname: localhost
+    ports:
+      - 8090:8090
+    network_mode: "host"
+    hostname: localhost
+
+  learnzilla-webapp:
+    build: learnzilla-webapp/
+    image: learnzilla-webapp
+    restart: always
+    container_name: learnzilla-webapp
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - "4200:4200"
+
+ 
+
+
+  prometheus:
+    container_name: prom
+    image: prom/prometheus
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+
+
+  grafana:
+    container_name: graf
+    image: grafana/grafana
+    restart: always
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 3000:3000
+
+
+  questionanswer-service:
+    build: questionanswer-service/
+    container_name: questionanswer-service
+    restart: always
+    depends_on:
+      - mongo
+      - eureka-server
+    network_mode: "host"
+    hostname: localhost
+    ports:
+      - 8000:8000

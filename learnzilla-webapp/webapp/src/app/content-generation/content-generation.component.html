@@ -1,0 +1,66 @@
+
+<mat-toolbar>
+  <span>Content Generation</span>
+</mat-toolbar>
+
+<app-program-details [domain]="domain"></app-program-details>
+
+<div [formGroup]="contentGenerationForm" class="container">
+  <div fxLayout="column" fxFlex="100%" fxLayoutAlign="space-around center" >
+    <!-- <mat-form-field fxFlex="80%" class="example-full-width" appearance="outline">
+      <mat-label>Program Title</mat-label>
+      <input
+        matInput
+        placeholder="Program Name"
+        formControlName="programName"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Domain Name</mat-label>
+      <input matInput placeholder="Domain Name" formControlName="domainName" />
+    </mat-form-field> -->
+
+    <mat-form-field class="demo-chip-list" appearance="outline">
+      <mat-chip-list #chipList>
+        <mat-chip
+          *ngFor="let concept of concepts"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(concept)"
+        >
+          {{ concept }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          class="field"
+          placeholder="Concept separated by comma"
+          #conceptInput
+          formControlName="conceptCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          [matChipInputAddOnBlur]="addOnBlur"
+          (matChipInputTokenEnd)="add($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="selected($event)"
+      >
+        <mat-option
+          *ngFor="let concept of filteredConcepts | async"
+          [value]="concept"
+        >
+          {{ concept }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <div class="button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10%" fxLayout.xs="column">
+      <!-- <button type="button" class="btn btn-secondary ">Reset</button> -->
+      <button type="button" class="btn btn-dark" [disabled]="isLoading" (click)="generateContent(conceptInput)"><img *ngIf="isLoading" style="width: 24px;" src="../assets/spinner.gif"/>
+        Generate Content</button>
+    </div>
+  </div>
+</div>
+

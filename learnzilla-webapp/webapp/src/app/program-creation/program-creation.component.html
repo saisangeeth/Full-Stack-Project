@@ -1,0 +1,133 @@
+<div class="sect1">
+  <mat-toolbar class="toolbar-color">
+    <span>Add New Program</span>
+    </mat-toolbar>
+  <div [formGroup]="programCreation" #creationForm="ngForm">
+    <div
+      fxLayout="row"
+      class="program-container"
+      fxFlex="100%"
+      fxLayoutGap="5%"
+      fxLayout.xs="column"
+    >
+      <div fxLayout="column" fxFlex="60%">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Program Title</mat-label>
+          <input
+            matInput
+            placeholder="Mention name of the title"
+            formControlName="programTitle"
+            required minlength = "1"
+          />
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Domain name</mat-label>
+          <input
+            matInput
+            placeholder="Mention name of the domain"
+            formControlName="domain"
+            [matAutocomplete]="auto"
+            required minlength = "1"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let value of domains" [value]="value">
+              {{value}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Description of Course</mat-label>
+          <textarea
+            matInput
+            placeholder="Information about course"
+            formControlName="description"
+            required minlength = "1"
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Duration in hours</mat-label>
+          <input
+            matInput
+            placeholder="Mention number of hours"
+            formControlName="duration"
+            value="0"
+            type="number"
+            min="0"
+            max="1000"
+            required minlength = "1"
+          />
+        </mat-form-field>
+        <div>Program image</div>
+        <div appDnd (fileDropped)="onImageFileDropped($event)">
+          <input type="file" class="form-control" formControlName="file" id="file"
+          (change)="onImageFileChange($event.target.files)" multiple="false"
+          required />
+        </div>
+      </div>
+      <div fxLayout="column" fxLayoutGap="3%">
+        <div>
+          <!-- <button mat-raised-button class="move btn btn-secondary" (click)="exportAsXLSX()">
+            Download Program Design Template
+          </button> -->
+          <button mat-raised-button class="move" (click)="exportAsXLSX()">
+            Download Program Design Template
+          </button>
+        </div>
+        <div class="upload">
+          <div>
+            Click here to browse or drag and drop your program design
+          </div>
+          <div appDnd (fileDropped)="onFileDropped($event)">
+            <input
+              type="file"
+              formControlName="file"
+              (change)="onFileChange($event.target.files)"
+              multiple="false"
+            />
+          </div>
+        </div>
+        <div class="or">
+          or
+        </div>
+        <div id="program-design-btn">
+          <button type="button"
+          class="btn btn-secondary button-width"
+          id="btn-width"
+          (click)="goToDesignPage()"
+          [disabled]="!creationForm.form.valid">Design Program Plan</button>
+        </div>
+        <div>
+          <!-- <div class="upload">
+            <div>Click here to browse or drag and drop your program image</div>
+            <div appDnd (fileDropped)="onImageFileDropped($event)">
+              <input
+                type="file"
+                formControlName="file"
+                (change)="onImageFileChange($event.target.files)"
+                multiple="false"
+                required
+              />
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="program-button"
+    fxLayout="row"
+    fxLayoutAlign="end end"
+    fxLayoutGap="3%"
+    fxLayout.xs="column"
+  >
+    <!-- <button type="button" class="btn btn-secondary button-width">Reset</button> -->
+    <button mat-raised-button class="button-width" (click)="restProgramForm()">Reset</button>
+    <button
+      type="button"
+      class="btn btn-dark button-width"
+      (click)="createProgram()"
+    >
+      Create
+    </button>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<!-- <div class="container" fxLayout="column" >
+  <div class="section">
+    <div><strong>Java Beginners in 10 days</strong></div>
+    <div><h5>java</h5></div>
+  </div>
+  <div class="content" fxLayout="row" fxLayoutAlign="space-around center" >
+    <div>
+      <p>Java is an object-oriented programming language that produces software for
+        multiple platforms.</p>
+    </div>
+    <div>
+      <img class="image" src="https://med-belarus.com/media/djcatalog2/images/item/2/cosmetology_f.jpg" alt="Java">
+    </div>
+  </div>
+  <div class="time" fxLayout="row" fxLayoutGap="1%">
+    <mat-icon>timer</mat-icon>
+    <div class="up">10</div>
+    <div class="up">hours</div>
+  </div>
+</div> -->
+
+<div class="container" fxLayout="row" fxLayoutGap="2%">
+  <div fxLayout="column" fxFlex="80%" fxLayoutGap="2%">
+    <!-- <div class="title mat-h2" >{{ program.programTitle }}</div> -->
+    <div fxLayout="row" fxLayoutGap="4%">
+      <div class="title mat-h2" >{{ program?.programTitle }}</div>
+      <div class="star">
+        <ngb-rating [max]="5" [(rate)]="program.rating" [readonly]="true"></ngb-rating>
+      </div>
+    </div>
+      <div fxLayout="row" fxLayoutGap="4%">
+        <div>
+          {{program?.domainName}}
+        </div>
+        <!-- <span class="badge badge-success">Running</span> -->
+        <div *ngIf="program?.status=='RUNNING'">
+          <span class="badge badge-success">{{program?.status}}</span>
+
+        </div>
+        <div *ngIf="program?.status=='STARTED'">
+          <span class="badge badge-danger">CONTENT TO BE GENERATED</span>
+
+        </div>
+      </div>
+    <div>
+      {{ program?.description|slice: 0:100 }}
+    </div>
+    <div fxLayout="row" fxLayoutGap="1%">
+      <div class="timer">
+        <mat-icon>timer</mat-icon>
+      </div>
+
+      <div class="durationn">{{ program?.duration }}</div>
+      <div class="space">hours</div>
+    </div>
+  </div>
+  <div>
+    <img class="image" src="{{  retrievedImage }}" alt="Java">
+  </div>
+</div>
+
+

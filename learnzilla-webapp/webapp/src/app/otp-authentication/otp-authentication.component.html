@@ -1,0 +1,44 @@
+
+<div class="sect1">
+    <div fxLayout="row" fxFlex ="100%" fxLayout.xs="column">
+
+      <div class="left" fxLayout="column" fxFlex="35%" fxFill>
+          <div class="leftside">
+              <div class="spacer"></div>
+              <div class="heading" (click)="onClick()">
+                 <img class="logo" src="../../assets/logo2.png"> LearnZilla
+              </div>
+
+              <div [formGroup]="emailRequest" class="signinform">
+
+                <label class="labelstyle" for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
+
+                <button class="btn-grad-o" (click)="onemailSubmit()" ><span>Send OTP</span></button>
+
+                <div class="register">
+                <div class="text">
+
+                    <p>
+                     <a mat-button [routerLink]="'/login'" > Back to Login</a>
+                    </p>
+
+                </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="right" fxLayout="column" fxFlex="65%" fxFill fxHide fxShow.gt-xs>
+          <div class="rightside">
+              <div class="slogan">
+                  Raise your <br><br><br><br>
+                  knowledge with us...
+              </div>
+
+          </div>
+      </div>
+
+  </div>
+  </div>
+

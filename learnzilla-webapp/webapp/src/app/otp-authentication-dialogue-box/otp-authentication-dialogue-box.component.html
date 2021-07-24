@@ -1,0 +1,16 @@
+
+<h3 style="color:blue">Email sent successfully....</h3>
+<h1 mat-dialog-title>OTP Verification</h1>
+<div mat-dialog-content>
+  <div class="dg" [formGroup]="otpRequest">
+    <p>Enter recieved OTP here.</p>
+    <mat-form-field class="otpfield" appearance="outline">
+      <mat-label>Enter OTP</mat-label>
+      <input matInput formControlName="OTP" required>
+    </mat-form-field>
+  </div>
+  <div class="flow" mat-dialog-actions>
+    <button mat-button class="cancelbtn" (click)="onNoClick()">Cancel</button>
+    <button mat-button class="verifybtn" (click)="onSubmit()" cdkFocusInitial>Verify</button>
+  </div>
+</div>

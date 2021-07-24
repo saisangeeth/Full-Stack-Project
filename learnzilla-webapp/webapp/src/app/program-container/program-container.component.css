@@ -1,0 +1,40 @@
+.program-card{
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  margin-top: 16px;
+   /* The image used */
+   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4-hS9FM0B-F9ZJGFFbx9nAHP_rITS7ctnIw&usqp=CAU");
+   /* Full height */
+
+   /* Center and scale the image nicely */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   display: block;
+   margin: 0 auto;
+   height: 95vh;
+   width: 100%;
+
+}
+
+
+.inside{
+  position: relative;
+}
+
+.message{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left:10%;
+  right:5%;
+  top: 15%;
+  background:linear-gradient(to right bottom, rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+  backdrop-filter: blur(0.5rem);
+  height:30vh;
+  width:80%;
+  border-radius: 0.5rem;
+}
+

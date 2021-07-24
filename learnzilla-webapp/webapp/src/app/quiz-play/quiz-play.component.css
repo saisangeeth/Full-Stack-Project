@@ -1,0 +1,46 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+.heading
+{
+    text-align:center;
+    font-size:30px;
+    margin-top:10px;
+}
+
+
+.sect2
+{
+    margin-left:50px;
+    margin-bottom:30px;
+
+}
+.menu
+{
+    margin-left:30px;
+}
+
+.header
+{
+    background-color: rgb(2, 2, 19);
+    color:white;
+    font-size:25px;
+}
+/* .header2
+{
+    background-color: rgb(135, 135, 144);
+    color:white;
+    font-size:25px;
+    text-align:center;
+} */
+
+.questyle
+{
+    font-size:20px;
+}
+.opstyle
+{
+   font-size:15px;
+}

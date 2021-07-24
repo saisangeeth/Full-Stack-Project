@@ -1,0 +1,41 @@
+/* .section{
+  margin-top:15%;
+  margin-left:6%;
+} */
+
+.image{
+  /* height:20%; */
+  /* min-width:20%; */
+  height: 180px;
+  width: 250px
+}
+.container{
+  margin-top:4%;
+  margin-left:10%;
+}
+/* .section.p{
+  font-size: 8px;
+} */
+
+.content{
+  margin-top:-2%;
+  margin-left:-4%;
+}
+
+.status{
+  margin-left:40%;
+  color:green;
+}
+
+.timer{
+  margin-top: 1%;
+}
+
+.space{
+  /* margin-left: 2%; */
+  /* margin-top: 5%; */
+}
+
+.badge{
+  
+}

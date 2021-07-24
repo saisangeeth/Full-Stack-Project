@@ -1,0 +1,52 @@
+<div id="header">
+    <h1>Design New Program</h1>
+</div>
+
+<div id="Title-Section">
+    <h2>Program Title: </h2> <h3> {{program?.title}} </h3>
+    <h2>Program Domain: </h2> <h3> {{program?.domain}} </h3>
+    <h2>Program Description: </h2> <h3> {{program?.description}} </h3>
+    <h2>Program Duration: </h2> <h3> {{program?.duration}} </h3>
+    <img [src]="imageURL" alt="Java Image">
+</div>
+
+<div id="design-section">
+    <div class="scrollbar" id="style-7">
+        <div class="force-overflow">
+            <form [formGroup]="conceptForm" #myForm="ngForm">
+                <div formArrayName="concepts">
+                    <div *ngFor="let concept of concepts().controls; let conceptIndex=index">
+                        <div id="Box" [formGroupName]="conceptIndex">
+                            <input id="parent" type="text" placeholder="Enter New Concept" formControlName="parentConcept" 
+                            required minlength = "1"/>
+                    
+                            <button (click)="addConcept()"><img src="../../assets/plus.png"/></button>
+                            <button (click)="removeConcept(conceptIndex)" *ngIf="this.isButtonVisible">
+                                <img src="../../assets/minus.png"/>
+                            </button>
+                    
+                            <div formArrayName="childConcepts">
+                                <div
+                                *ngFor="let childConcept of childConcepts(conceptIndex).controls; let childConceptIndex=index"
+                                >
+                                    <div [formGroupName]="childConceptIndex">
+                                        <input id="child" type="text" placeholder="Enter Child Concept" formControlName="childConcept" 
+                                        required minlength = "1"/>
+                        
+                                        <button (click)="addChildConcept(conceptIndex)">
+                                            <img src="../../assets/plus.png"/>
+                                        </button>
+                                        <button (click)="removeChildConcept(conceptIndex, childConceptIndex)">
+                                            <img src="../../assets/minus.png"/>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <button id="submit-button" (click)="onSubmit()" [disabled]="!myForm.form.valid"> Submit </button>
+</div>

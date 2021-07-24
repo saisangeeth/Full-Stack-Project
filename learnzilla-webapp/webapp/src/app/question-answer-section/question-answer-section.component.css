@@ -1,0 +1,120 @@
+mat-input
+{
+    width:80%;
+    border:2px solid blue;
+}
+.publish-button
+{
+  background-color: black;
+  color:white;
+  font-size:20px;
+  text-align:center;
+  border:1px solid gray;
+  min-width:200px;
+  height:50px;
+  padding:auto;
+
+}
+.program-container
+{
+    padding-top:15px;
+    padding-left:20px;
+
+}
+.left
+{
+    /* background:rgb(230, 188, 188) */
+}
+/* .left
+{
+    height:45vh;
+    background:rgb(100, 86, 86)
+} */
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  mat-expansion-panel
+  {
+    margin-bottom: 10px;
+    border:1px solid lightgray;
+
+  }
+  .mat-expansion-panel:hover
+  {
+    background-color:#EEEEEE;
+  }
+  mat-accordion
+  {
+    /* border:2px solid black; */
+    margin-bottom:10px;
+    margin-left:30px;
+    margin-right:30px;
+    min-width: 95%;
+
+  }
+  /* mat-accordion:hover
+  {
+    background-color: rgb(200, 200, 202);
+  } */
+
+  .description
+  {
+      margin-left:100px;
+  }
+ .desc{
+
+     margin-right:15px;
+ }
+  .ans{
+     /* text-align:right;  */
+    margin-left: 35px;
+    margin-bottom: 15px;
+  }
+  /* .ansicon{
+    margin-left:50px;
+    margin-right: 20px;
+  } */
+  .quelogo
+  {
+   padding-top:5px;
+  }
+  .date-subtitle
+  {
+      font-size:12px;
+      color:gray;
+      margin-top:0px;
+  }
+ .comment
+{
+  min-width:80%;
+  padding:auto;
+  margin-left:90px;
+}
+.btnio
+{
+
+  background-color:rgb(146, 145, 145);
+  color:white;
+  min-width:150px;
+  margin-left:15px;
+}
+.box
+{
+  font-size:20px;
+}
+.ans-subtitle
+  {
+      font-size:12px;
+      color:grey;
+      /* margin-top:0px; */
+
+  }
+  .example-full-width
+  {
+    min-width:80%;
+  }
+
+  .editor
+  {
+    min-width:100%;
+  }

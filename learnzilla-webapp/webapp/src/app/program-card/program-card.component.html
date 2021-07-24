@@ -1,0 +1,135 @@
+<div>
+  <mat-card class="mat-elevation-z4 programcard" fxLayout="column">
+    <!-- <mat-card-header>
+      <mat-card-title>{{ program.programTitle }}</mat-card-title>
+
+      <mat-card-subtitle>
+        {{ program.domainName }}
+      </mat-card-subtitle>
+
+        <div class="star">
+          <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="true"></ngb-rating>
+        </div>
+
+    </mat-card-header> -->
+
+
+
+
+
+    <mat-card-header fxLayout="column">
+      <div class="title mat-h2" >{{ program.programTitle }}</div>
+      <div fxLayout="row" fxLayoutGap="4%">
+        <div>
+          {{ program.domainName }}
+        </div>
+        <div *ngIf="program.status=='RUNNING'">
+          <span class="badge badge-success">{{program.status}}</span>
+
+        </div>
+        <div *ngIf="program.status=='STARTED'">
+          <span class="badge badge-danger">CONTENT TO BE GENERATED</span>
+
+        </div>
+      </div>
+
+
+    </mat-card-header>
+
+
+    <img mat-card-image src="{{  retrievedImage }}" alt="Photo of Cosmetology" />
+    <mat-card-content>
+      <div matTooltip="{{ program.description }}" matTooltipPosition="below" class="program-description">
+        {{ program.description|slice: 0:85 }}
+      </div>
+    </mat-card-content>
+
+
+    <div fxLayout="row">
+      <div class="timer">
+        <mat-icon>timer</mat-icon>
+      </div>
+
+      <div class="durationn">{{ program.duration }}</div>
+      <div class="space">hours</div>
+    </div>
+
+
+
+
+    <mat-card-actions fxLayout="row" fxLayoutGap.xs="5%">
+      <div class="value" fxLayout="row">
+
+        <div class="star">
+          <ngb-rating [max]="5" [(rate)]="program.rating" [readonly]="true"></ngb-rating>
+        </div>
+
+      </div>
+      <div *ngIf="generateConcept">
+        <div fxLayout="row" fxLayoutAlign="right" >
+          <!-- <mat-icon class="create-icon" (click)="createContent(program)"
+         *ngIf="generateConcept" matTooltip = "Generate Content" >add</mat-icon> -->
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon class="create-icon">more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="createContent(program)">
+              <span> Generate Content </span>
+            </button>
+
+            <button mat-menu-item *ngIf="program.status=='RUNNING'" (click)="levelSelectionDialogBox(program.domainName, program.programTitle)">
+              <span> Start Reading </span>
+            </button>
+            <button mat-menu-item *ngIf="program.status=='RUNNING'" (click)="goToEnroll()">
+              <span> Enroll participant </span>
+            </button>
+          </mat-menu>
+        </div>
+
+        <!-- <div fxLayout="row" fxLayoutAlign="right" *ngIf="program.status=='Content To Be Generated'">
+
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon class="create-icon">more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="createContent(program)" *ngIf="generateConcept">
+              <span> Create Content </span>
+            </button>
+          </mat-menu>
+        </div> -->
+      </div>
+
+
+
+      <div *ngIf="!generateConcept">
+
+
+
+          <button mat-button class="reading-button"
+            (click)="levelSelectionDialogBox(program.domainName, program.programTitle)">Start Reading</button>
+
+          <!-- <mat-menu #menu="matMenu">
+      <button mat-menu-item >
+        <span> Start Reading </span>
+      </button> -->
+
+          <!-- <button type="button" class="btn btn-primary"
+            (click)="levelSelectionDialogBox(program.domainName, program.programTitle)">Start Reading</button> -->
+          <!-- <button type="button" onclick="alert('Hello world!')">Start Reading</button> -->
+
+
+
+
+      </div>
+
+
+
+
+
+
+      <!-- <div class="button" fxLayout="row" fxLayoutAlign=" center" fxLayoutGap="10%" fxLayout.xs="column">
+      <button type="button"  class="btn btn-secondary " (click)="createContent(program)">Create Content</button>
+      </div> -->
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,56 @@
+<mat-toolbar>
+  <span>Trainee Enrollment</span>
+</mat-toolbar>
+
+<app-program-details [domain]="domain"></app-program-details>
+
+  <div [formGroup]="traineeEnrollmentForm" class="container">
+    <div fxLayout="column" fxFlex="100%" fxLayoutAlign="space-around center" >
+
+  <mat-form-field class="demo-chip-list" appearance="outline">
+
+
+    <mat-chip-list #chipList>
+      <mat-chip
+        *ngFor="let name of names"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(name)"
+      >
+        {{ name }}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Enter User EmailId"
+        #nameInput
+        formControlName="nameCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    </mat-chip-list>
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      (optionSelected)="selected($event)"
+    >
+      <mat-option *ngFor="let name of filteredNames" [value]="name">
+        {{ name }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button
+    type="button"
+    matSuffix
+    class="btn btn-dark"
+    (click)="enrollTrainee()"
+  >
+    <!-- <img *ngIf="isLoading" style="width: 24px" src="../assets/spinner.gif" /> -->
+
+    EnrollTrainee
+  </button>
+  </div>
+  </div>
+<!-- </div> -->
+

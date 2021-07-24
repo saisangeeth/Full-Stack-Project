@@ -1,0 +1,82 @@
+<div class="sect1" [formGroup]="questionPublisher">
+
+  <div fxLayout="column" class="program-container" fxFlex="100%">
+
+    <div fxLayout="row" fxLayoutGap="3%" fxLayout.xs="column">
+
+      <mat-form-field class="example-full-width" appearance="outline" required>
+        <mat-label>Enter question title here.</mat-label>
+        <input matInput formControlName="questionTitle" placeholder="write your query/question here." />
+      </mat-form-field>
+
+      <div class="btnstyle">
+        <button mat-stroked-button class="publish-button" (click)="createQuestion()">Publish</button>
+      </div>
+
+    </div>
+
+    <div class="desc" fxFlex="row">
+
+      <form novalidate #form="ngForm">
+        <!-- <input type="text"  formControlName="questionBody" class="form-control" name="Test" [(ngModel)]="content"> -->
+        <md-editor #md="ngModel" name="Content" (onEditorLoaded)="onEditorLoaded($event)" [preRender]="preRender"
+          [postRender]="postRender" (onPreviewDomChanged)="onPreviewDomChanged($event)" [upload]="doUpload"
+          [(ngModel)]="content" [mode]="mode" [options]="options" required maxlength="300" height="200px" width="80%10">
+        </md-editor>
+      </form>
+
+    </div>
+
+
+  </div>
+</div>
+
+<div fxLayout="row">
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+      *ngFor="let question of questionArray">
+      <mat-expansion-panel-header>
+        <mat-panel-title fxLayout="row" fxLayoutGap="3%">
+          <ngx-avatar matTooltip="{{question.publishedBy}}" class="quelogo" name="{{question.publishedBy}}"
+            [round]="true" size="40"></ngx-avatar>
+          <div fxLayout="column">
+            <div class="title">{{question.questionTitle}} </div>
+            <div class="date-subtitle">
+              {{question.questionDate.split("T")[0]}}
+
+            </div>
+          </div>
+        </mat-panel-title>
+
+      </mat-expansion-panel-header>
+
+      <p class="description">
+        <!-- <md-editor>{{question.questionBody}}</md-editor> -->
+        <markdown lineNumbers [data]="question?.questionBody"> </markdown>
+      </p>
+      <div *ngFor="let answer of question.answers">
+
+        <div class="ans" fxLayout="row" fxLayoutGap="3%">
+          <!-- <div fxLayout="" fxLayoutGap="3%"> -->
+          <ngx-avatar matTooltip="{{answer.answeredBy}}" class="ansicon" name="{{answer.answeredBy}}" [round]="true"
+            size="40"></ngx-avatar>
+          <div>
+            {{answer.answerBody}}
+            <p class="ans-subtitle">{{answer.answerDate.split("T")[0]}}</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div [formGroup]="commentAnswer">
+        <mat-form-field class="comment" appearance="outline">
+          <mat-label class="box">Enter your answer here.</mat-label>
+          <input matInput formControlName="answerBody" placeholder="Your Answer">
+        </mat-form-field>
+        <button mat-stroked-button class="btnio" (click)=" createAnswer(question.questionTitle)">Comment</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

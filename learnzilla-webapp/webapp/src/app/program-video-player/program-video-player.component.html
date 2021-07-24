@@ -1,0 +1,65 @@
+<!-- <div fxFlex="66%" fxFlexOffset="15%">
+<div class="video" [innerHtml]="iframe_html" ></div>
+</div>  -->
+<!-- *ngIf = "documentObject?.type == 'video'" -->
+<!-- fxFlexGap="3%"  -->
+
+<div fxLayout="column"  class="sum" *ngIf="documentObject?.type == 'video'" >
+  <div>
+    <iframe class="video" id="iframe" [src]="documentObject?.url" frameborder="0" allowfullscreen #iframe></iframe>
+
+  </div>
+  <!-- {{getYoutubeVideoUrl(documentObject?.concept, documentObject?.title)}} -->
+  <!-- documentObject?.url -->
+
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Q/A"><app-question-answer-section [title]="documentObject?.title"> </app-question-answer-section></mat-tab>
+
+  </mat-tab-group>
+</div>
+<!-- documentObject?.url -->
+
+
+
+
+
+<!-- <meta http-equiv="Content-Security-Policy" content= "default-src * ; connect-src 'allow'"> -->
+<!-- <meta http-equiv="X-Frame-Options" content="deny"> -->
+<!-- <div fxLayout="row" fxLayoutAlign="center"> -->
+<!-- {{documentObject?.type}}
+  {{documentObject?.concept}}
+  {{documentObject?.title}}
+  {{documentObject?.response}} -->
+
+<div class="spark" fxLayout="column" fxLayoutAlign="center" *ngIf = "documentObject?.type=='document'">
+  <div class="document">
+    <!-- {{getContent(documentObject?.concept, documentObject?.title)}} -->
+    <div [innerHTML]="documentObject?.result">
+
+    </div>
+  </div>
+
+  <div class="question">
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Q/A"><app-question-answer-section [title]="documentObject?.title"> </app-question-answer-section></mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>
+
+
+
+
+<!-- hello -->
+<!-- <iframe
+    class="video"
+    id="iframe"
+    src="https://www.sephora.com/ca/en/product/bronzed-beauty-bronzer-duo-P421443"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>  -->
+
+<!-- </div>  -->
+<!-- <a href="https://www.sephora.com/ca/en/product/bronzed-beauty-bronzer-duo-P421443">content</a> -->
+<!-- <embed src="https://www.w3schools.com/java/java_constructors.asp"> -->
+<!-- <object src="https://www.w3schools.com/java/java_constructors.asp"></object> -->

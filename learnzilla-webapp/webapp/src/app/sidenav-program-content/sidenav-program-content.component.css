@@ -1,0 +1,142 @@
+mat-sidenav {
+  width: 25%;
+}
+
+.accordion-button{
+ color:white;
+ background-color: #808080;
+ word-wrap: break-word;
+ word-break: break-all;
+
+}
+.example1{
+  font-weight: bold;
+width: 80%;
+word-wrap: break-word;
+word-break: break-all;
+font-size: medium;
+margin-bottom: 3%;
+margin-top: 3%;
+margin-left: 5%;
+/* color: #0040ff; */
+
+}
+
+
+.example2{
+
+width: 20%;
+word-wrap: break-word;
+word-break: break-all;
+float:right;
+font-size: medium;
+margin-bottom: 3%;
+margin-top: 3%;
+margin-left: 5%;
+/* color: #0040ff; */
+}
+
+.set1{
+display: flex;
+border: solid 1px #746d6f;
+width: 100%;
+min-height: 50px;
+cursor: pointer;
+font-size: medium;
+
+
+
+}
+.set2{
+display: flex;
+border: solid 1px #746d6f;
+width: 100%;
+cursor: pointer;
+min-height: 50px;
+
+}
+
+.example4{
+width: 20%;
+float:right;
+margin-bottom: 3%;
+margin-top: 3%;
+font-size: medium;
+margin-left: 5%;
+/* color: #0040ff; */
+}
+.example3{
+  font-weight: bold;
+width: 80%;
+  word-wrap: break-word;
+  word-break: break-all;
+  font-size:medium;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  margin-left: 5%;
+  /* color: #0040ff; */
+
+}
+.childConcept{
+  background-color: #f2f2f2;
+  color: black;
+}
+
+
+.btn{
+
+  float: right;
+  font-size: 40px;
+}
+.menu-spacer{
+  width: 90%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@1,600&display=swap'); */
+
+
+
+a{
+  text-decoration: dashed;
+  /* color:crimson; */
+  /* font-weight:500; */
+}
+a.hover
+{
+  /* color:rgb(201, 119, 136); */
+}
+ul
+{
+  list-style-type: none;
+}
+
+
+p{
+  text-decoration: dashed;
+  /* color:crimson; */
+  /* font-weight:500; */
+}
+p.hover
+{
+  /* color:rgb(201, 119, 136); */
+}
+

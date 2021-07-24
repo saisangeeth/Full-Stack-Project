@@ -1,0 +1,9 @@
+<h2>Please select your program level</h2>
+<mat-radio-group aria-label="Select an option" #radioGroup="matRadioGroup">
+  <mat-radio-button value="BEGINNER">Begineer</mat-radio-button>
+  <mat-radio-button value="INTERMEDIATE">Intermediate</mat-radio-button>
+  <mat-radio-button value="EXPERT">Expert</mat-radio-button>
+</mat-radio-group>
+<div>
+<button type="button" class="btn btn-dark"  (click)="toc(radioGroup)">Ok</button>
+</div>

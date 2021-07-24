@@ -1,0 +1,142 @@
+.content {
+  font-size: 20px;
+  padding: 16px;
+  text-decoration-color: white;
+}
+
+.content > mat-card {
+  width: 400px;
+  /* height: 550px; */
+
+}
+.mat-card{
+}
+
+.mat-card-image{
+  height: 180px;
+  /* width: 450px; */
+}
+.value{
+  /* float:right; */
+  font-size: 15px;
+  width: 80%;
+}
+.programcard{
+  margin-bottom: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color:blanchedalmond;
+  font-family: 'pacifico',cursive;
+  margin-top:2rem;
+}
+.btn-secondary {
+width:50%;
+margin-left:25%;
+margin-right:25%;
+}
+.program-description{
+  text-align: justify;
+  font-size: 17px;
+}
+.create-icon{
+  position: relative;
+  margin-right: 100;
+  display: flex;
+  font-size: 30px;
+  flex-direction:row;
+  justify-content:right;
+  justify-self:end;
+  vertical-align:bottom;
+}
+/* .icon{
+  float:right;
+  position: relative;
+  vertical-align: bottom;
+} */
+
+ngb-rating {
+  color: black;
+  font-size: 150%;
+/* margin-bottom: 30px; */
+
+}
+.space1{
+  /* width: 80%; */
+
+  /* margin-left: 80%; */
+  margin-top: 5%;
+}
+.space{
+  margin-left: 2%;
+  /* margin-top: 5%; */
+}
+.star{
+
+}
+.durationn{
+  /* margin-top: 5%; */
+}
+.timer{
+  margin-top: 1%;
+}
+.spacing{
+  margin-left: 60%;
+}
+.mat-icon-button{
+  /* float: right; */
+  /* justify-self:end; */
+  justify-content: right !important;
+}
+.mat-card-subtitle{
+  font-size: 19px;
+}
+/* .mat-card-content{
+  font-size: 19px;
+  margin-left: 3%;
+} */
+
+.p{
+
+}
+.span{
+/* margin-left: 30%; */
+}
+contrest{
+  font-size: 22px;
+}
+
+.mat-card-header{
+  margin-left: 0px;
+}
+
+.reading-button{
+  background-color: lightgray;
+}
+.title{
+
+}
+@media only screen and (max-width: 37.5em) {
+  .content > mat-card {
+    width:90%;
+    height: auto;
+  }
+
+  /*add this it*/
+  /* .mat-card-image {
+     flex-direction: column;
+     width: 270px;
+  } */
+  /*----------------------*/
+
+  .programcard {
+    width:90%;
+    margin-top:2rem;
+    margin-right: 15px;
+  }
+  .program-description{
+    font-size:15px;
+  }
+  .value{
+    font-size:9px;
+  }
+}

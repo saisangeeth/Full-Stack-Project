@@ -1,0 +1,68 @@
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+
+# A scrape configuration containing exactly one endpoint to scrape:
+scrape_configs:
+  - job_name: 'prometheus'
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+      - targets: [ 'localhost:9090' ]
+
+#  - job_name: 'authentication-service'
+#    scrape_interval: 2s
+#    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+#    static_configs:
+#      - targets: [ '172.31.26.75:8090' ] ## host and port for your mis
+  
+  - job_name: 'eureka-server'
+    scrape_interval: 2s
+    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+    static_configs:
+      - targets: [ 'localhost:8076' ] ## host and port for your mis    
+  
+  - job_name: 'userprofile-service'
+    scrape_interval: 2s
+    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+    static_configs:
+      - targets: [ '172.31.26.75:8096' ] ## host and port for your mis 
+
+  - job_name: 'questionanswer-service'
+    scrape_interval: 2s
+    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+    static_configs:
+      - targets: [ '172.31.26.75:8000' ] ## host and port for your mis
+      
+  - job_name: 'contentsearch-service'
+    scrape_interval: 2s
+    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+    static_configs:
+      - targets: [ '172.31.26.75:8085' ] ## host and port for your mis 
+      
+  - job_name: 'contentanalysis-service'
+    scrape_interval: 2s
+    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+    static_configs:
+      - targets: [ '172.31.26.75:8070' ] ## host and port for your mis     
+      
+  - job_name: 'graphcommand-service'
+    scrape_interval: 2s
+    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+    static_configs:
+      - targets: [ '172.31.26.75:8060' ] ## host and port for your mis     
+      
+  - job_name: 'graphquery-service'
+    scrape_interval: 2s
+    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+    static_configs:
+      - targets: [ '172.31.26.75:8097' ] ## host and port for your mis    
+
+  - job_name: 'gateway-service'
+    scrape_interval: 2s
+    metrics_path: '/actuator/prometheus' ##prometheus endpoint
+    static_configs:
+      - targets: [ '172.31.26.75:8080' ] ## host and port for your mis        

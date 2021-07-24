@@ -1,0 +1,80 @@
+<div class="main">
+  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"> 
+        <img class="logo" src="../../assets/learnZilla.png"> LearnZilla</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <ul class="navbar-nav  mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li> -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Features
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" *ngIf="showFeature">
+              <li><a class="dropdown-item" [routerLink]="'/home/programcreation'">Add new Program</a></li>
+              <li><a class="dropdown-item" [routerLink]="'/home/program'">View Programs</a></li>
+           
+            </ul>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" *ngIf="!showFeature">
+              <li><a class="dropdown-item" [routerLink]="'/home/program-dashboard'">View Programs</a></li>
+
+            </ul>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Teach With Us</a></li>
+              <li><a class="dropdown-item" href="#">Create course</a></li>
+            </ul>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Resources
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Skills</a></li>
+              <li><a class="dropdown-item" href="#">Assesments</a></li>
+              <li><a class="dropdown-item" href="#">Certifications</a></li>
+            </ul>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
+          </li> -->
+        </ul>
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome {{loggedinUser}} <mat-icon class="profile">account_circle</mat-icon>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item">
+                  <mat-icon class="content">person</mat-icon><span>My Profile</span>
+                </a></li>
+              <li><a class="dropdown-item" (click)="onLogout()">
+                  <mat-icon class="content"> vpn_key</mat-icon><span>Sign out</span>
+                </a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </nav>
+  <router-outlet></router-outlet>
+</div>

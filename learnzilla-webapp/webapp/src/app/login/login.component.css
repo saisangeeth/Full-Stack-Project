@@ -1,0 +1,164 @@
+.left{
+    /* border:2px solid black; */
+    min-width:35%;
+    height:98vh;
+    background-color: rgb(126, 122, 122);
+
+}
+.right{
+    /* // border:2px solid black; */
+    height:98vh;
+    background-image: url(src/assets/wall.jpg);
+    background-size: cover;  
+    position:relative;
+}
+
+*{
+    font-family:'crimson-pro';
+  }
+.sect
+{
+    background-color: black;
+}
+  
+  .leftside,.rightside
+  {
+      height:50vh;
+      width:100%
+  }
+  
+  @media screen and (min-width:768px)
+  {
+      .leftside,.rightside
+      {
+          height:100vh;
+      }
+  }
+  
+  .leftside{
+      background:rgba(0, 0, 0, 0.986);
+  }
+  .rightside{
+      background-image: url(src/assets/wall.jpg);
+      background-size: cover;  
+      position:relative;
+      
+  }
+  .spacer
+  {
+      flex:1;
+      min-height:70px;
+  }
+  .heading
+  {
+      text-align:center;
+      font-size: 55px;
+      margin-bottom: 50px;
+      font-weight:bold;
+      color:rgb(233, 173, 238);
+  }
+  .labelstyle{
+      font-size : 20px;
+      color: white;
+      margin-bottom:15px;
+  }
+  .form-control
+  {
+      background:rgb(34, 33, 33);
+      border:1px solid rgb(86, 86, 109);
+      color:white;
+      margin-bottom:20px;
+  }
+  .signinform
+  {
+      margin-left:30px;
+      margin-right:30px;
+  }
+  
+  .btn-grad-o {background-image: linear-gradient(to right, #ee0979 0%, #ff6a00  51%, #ee0979  100%)}
+  .btn-grad-o {
+     margin-top:30px;
+     margin-bottom:10px;
+     font-size:20px;
+     padding: 15px 45px;
+     text-align: center;
+     transition: 0.5s;
+     background-size: 200% auto;
+     color: white;            
+     box-shadow: 0 0 20px rgb(66, 4, 4);
+     border-radius: 10px;
+     display: block;
+     width:100%;
+     cursor: pointer;
+   }
+  
+   .btn-grad-o:hover {
+     background-position: right center; /* change the direction of the change here */
+     color: #fff;
+     text-decoration: none;
+   }
+      
+  .logo
+  {
+      height:15%;
+      width:20%;
+  }
+  .slogan
+  {
+      
+      font-size: 80px;
+      font-weight:bold;
+      color:white;
+      text-align: left;
+      height: 100%;
+      display: flex;
+      place-content: left;
+      align-items: center;
+  }
+  
+  .register
+  {
+      color: white;
+      /* margin-top:30px;
+      margin-bottom:20px; */
+      text-align:center;
+  }
+  .text{
+      font-size : 20px;
+      color:white;
+  }
+  ::ng-deep .custom-style{
+      background-color:rgb(231, 184, 231);
+      color:rgb(0, 0, 0);
+      font-size:15px;
+      border:black 2px solid;
+      
+    }
+    .btn-grad-w{background-image: linear-gradient(to right, #283048 0%, #859398  51%, #283048  100%)}
+    .btn-grad-w {
+       margin-top:20px;
+       font-size:20px;
+       padding: 15px 45px;
+       text-align: center;
+       transition: 0.5s;
+       background-size: 200% auto;
+       color: white;            
+       box-shadow: 0 0 20px rgb(2, 0, 0);
+       border-radius: 10px;
+       display: block;
+       width:100%;
+       cursor: pointer;
+     }
+    
+     .btn-grad-w:hover {
+       background-position: right center; /* change the direction of the change here */
+       color: #fff;
+       text-decoration: none;
+     }
+
+     .text1{
+         margin-top:15px;
+         text-align: center;
+        font-size : 27px;
+        color:rgb(200, 201, 214);
+    }

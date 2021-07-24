@@ -1,0 +1,37 @@
+<div class="main" id="certificate" #certificate>
+  <div class="heading">
+    <img class="logo" src="../../assets/learnZilla.png" /> LearnZilla
+  </div>
+  <!-- <div fxLayoutAlign="space-around center">
+    <p class="p1"><strong>This Certificate was awarded to :</strong></p>
+  </div>
+  <div fxLayoutAlign="space-around center" class="name">Gampa Sai Sangeeth</div>
+  <div fxLayoutAlign="space-around center">
+    <p class="p2">
+      <strong>Who completed (COURSE NAME) program offered</strong>
+    </p>
+  </div>
+  <div class="p3" fxLayoutAlign="space-around center">
+    <strong>by learnzilla on date</strong>
+  </div>
+  <div fxLayoutAlign="space-around center"><p class="sign">Learnzilla Team</p></div>
+  <hr />
+  <div fxLayoutAlign="space-around center"><p class="cood">co-ordinator</p></div> -->
+  <div fxLayout="column" fxLayoutAlign="space-around center" >
+    <div>
+      <p class="p1"><strong>This Certificate was awarded to :</strong></p>
+    </div>
+    <div  class="name">{{userName}}</div>
+    <div>
+      <p class="p2">
+        <strong>Who completed {{programName}} program offered</strong>
+      </p>
+    </div>
+    <div class="p3">
+      <strong>by learnzilla</strong>
+    </div>
+    <div><p class="cood">*This is digital certificate so physical signature is not required.</p></div>
+  </div>
+  <!-- <footer class="footer">{{}}</footer> -->
+</div>
+<button class="btn btn-danger" id="download" (click)="download()"><i class="fas fa-file-pdf fa-2x"></i></button>

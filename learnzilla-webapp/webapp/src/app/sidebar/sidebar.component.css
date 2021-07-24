@@ -1,0 +1,32 @@
+mat-sidenav-container
+{
+    height: 100%;
+    width:100%;
+    float:left;
+    clear: left;
+}
+
+mat-sidenav-content
+{
+    padding: 16px;
+    /* float:left; */
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+}
+
+mat-sidenav
+{
+    padding: 16px;
+    background-color: gray;
+    width: 20%;
+    margin:0px;
+}
+
+button
+{
+    padding: 5px;
+    margin: 0px;
+    float:left;
+}

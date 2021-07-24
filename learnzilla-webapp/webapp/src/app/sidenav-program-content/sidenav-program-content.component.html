@@ -1,0 +1,165 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+
+
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+
+
+
+    <h1>{{programName}}</h1>
+
+
+    <span class="menu-spacer"></span>
+
+
+
+    <button class="btn"><i class='far fa-star' (click)="openDialog()" matTooltip="Feedback"></i></button>
+
+
+
+
+    <div>
+
+
+
+      <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <a href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <circle-progress [percent]="percent" [radius]="29" [outerStrokeWidth]="5" [innerStrokeWidth]="2"
+              [outerStrokeColor]="'#78C000'" [innerStrokeColor]="'#C7E596'" [animation]="true"
+              [animationDuration]="300"></circle-progress>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+            <div *ngIf="percent < 100" >
+              <li>
+                <p class="dropdown-item">To get certified you need to complete 100%
+                </p>
+              </li>
+            </div>
+            <div *ngIf="percent == 100" >
+              <li><a class="dropdown-item"  (click)="goToCertificate()">See Certificate</a></li>
+            </div>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </mat-toolbar-row>
+  <!-- <button id="button1" (click)="resetTime()">Reset Time</button> -->
+
+
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+
+
+    <div class="accordion" id="accordionPanelsStayOpenExample" *ngFor="let toc of tocArray;let i = index;">
+      <div class="accordion-item">
+
+        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+          attr.data-bs-target="#panelsStayOpen-collapseOne{{i}}" aria-expanded="false"
+          attr.aria-controls="panelsStayOpen-collapseOne{{i}}">
+          {{toc.parent.innerChild}}
+          <!-- {{toc.child.length()}} -->
+        </button>
+
+        <div>
+
+
+
+
+
+        </div>
+
+
+        <div id="panelsStayOpen-collapseOne{{i}}" class="accordion-collapse collapse"
+          aria-labelledby="panelsStayOpen-headingOne">
+
+
+          <div class="set1" (click)="getContent(toc.parent.innerChild,toc.parent.content.document.title);sidenav.toggle()">
+
+            <div class="example1"> Document : {{toc.parent.content.document?.title}} </div>
+
+
+            <div class="example2"> {{toc.parent.content.document?.duration}} Mins </div>
+          </div>
+
+
+          <div class="set2" (click)="getVideo(toc.parent.content.video.title,toc.parent.innerChild);sidenav.toggle() ">
+            <div class="example3"> Video : {{toc.parent.content.video?.title}} </div>
+            <div class="example4"> {{toc.parent.content.video?.duration}} Mins</div>
+          </div>
+
+        </div>
+
+        <div>
+
+
+          <div id="panelsStayOpen-collapseOne{{i}}" class="accordion-collapse collapse"
+            aria-labelledby="panelsStayOpen-headingOne">
+
+
+            <div *ngIf="toc?.child[0].innerChild!=null">
+              <div *ngFor="let innerConcept of toc?.child;let z = index;">
+
+
+                <div class="accordion-item">
+
+                  <button class="accordion-button collapsed childConcept" type="button" data-bs-toggle="collapse"
+                    attr.data-bs-target="#panelsStayOpen-collapseOne{{i}}{{z}}" aria-expanded="false"
+                    attr.aria-controls="panelsStayOpen-collapseOne{{i}}{{z}}">
+                    {{innerConcept?.innerChild}}
+
+                  </button>
+
+                  <div id="panelsStayOpen-collapseOne{{i}}{{z}}" class="accordion-collapse collapse"
+                    aria-labelledby="panelsStayOpen-headingOne">
+
+
+                    <div class="set1"
+                      (click)="getContent(innerConcept.innerChild,innerConcept.content.document?.title);sidenav.toggle()">
+
+                      <div class="example1"> Document : {{innerConcept.content.document?.title}} </div>
+                      <div class="example2"> {{innerConcept.content.document?.duration}} Mins</div>
+                    </div>
+
+
+
+
+                    <div class="set2" (click)="getVideo(innerConcept.content.video?.title,innerConcept.innerChild);sidenav.toggle() ">
+                      <div class="example3"> Video : {{innerConcept.content.video?.title}} </div>
+                      <div class="example4"> {{innerConcept.content.video?.duration}} Mins</div>
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+  </mat-sidenav>
+
+
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+      <!-- <mat-spinner *ngIf = "loader" style="margin:0 auto;" mode="indeterminate" ></mat-spinner> -->
+      <app-program-video-player [documentObject]="documentObject"></app-program-video-player>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,27 @@
+<div *ngIf="isLoading; else readingdashboard">
+  <mat-spinner  style="margin:0 auto;" mode="indeterminate"></mat-spinner>
+</div>
+<ng-template #readingdashboard> 
+<div *ngIf="programArray?.length > 0; else noPrograms">
+  <div fxLayout="row wrap" class="program-card">
+    <app-program-card
+      *ngFor="let program of programArray"
+      [program]="program"
+      [generateConcept]="false"
+      fxFlex="33%"
+      fxFlex.xs="100%"
+      fxFlex.sm="33%"
+    ></app-program-card>
+  </div>
+</div>
+
+
+
+<div class="program-card">
+  <ng-template #noPrograms>
+    <div class="message">
+      <p class="inside">No enrolled Programs please connect with sme to get enrolled to the desired course</p>
+    </div>
+  </ng-template>
+</div>
+</ng-template>

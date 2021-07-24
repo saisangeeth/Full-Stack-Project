@@ -1,0 +1,50 @@
+/* .feed{
+ 
+   
+} */
+
+.heading{
+    text-align: center;
+
+}
+
+.example-full-width{
+  margin-top: 20 px;
+
+    width: 100%;
+    word-wrap: break-word;
+word-break: break-all;
+}
+.size{
+    font-size: larger;
+}
+.send{
+    background-color: lightgrey;
+    
+}
+.text1{
+  font-size: 120%;
+}
+.text2{
+    font-size: 120%;
+  }
+/* .heading{
+    width: 120%;
+      font-weight: bold;
+      background-color: lightgray;
+ padding-left: 0px;
+  } */
+
+.container-fluid{
+  margin: 0px;
+  padding: 0px;
+ 
+}
+
+
+ngb-rating {
+  margin-top: 20px;
+  color: #FFC107;
+  font-size: 80px;
+  margin-bottom: 40px;
+}

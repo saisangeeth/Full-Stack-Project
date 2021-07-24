@@ -1,0 +1,113 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8076/eureka
+    register-with-eureka: true
+    fetch-registry: true
+#jwt :
+#  secret: BvPHGM8C0ia4uOuxxqPD5DTbWC9F9TWvPStp3pb7ARo0oK2mJ3pd3YG4lxA9i8bj6OTbadwezxgeEByY
+server:
+  port: 8080
+ribbon:
+  ReadTimeout: 60000
+#spring:
+#  cloud:
+#    gateway:
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "*"
+#            allowedMethods:
+#              - GET
+#              - POST
+spring:
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            exposedHeaders: "*"
+      routes:
+        - id: userprofile-service
+          uri: lb://userprofile-service
+          predicates:
+            - Path=/userprofile-service/**
+          filters:
+            - RewritePath=/userprofile-service(?<segment>/?.*), $\{segment}
+
+
+        - id: authentication-service
+          uri: lb://authentication-service
+          predicates:
+            - Path=/authentication-service/**
+          filters:
+            - RewritePath=/authentication-service(?<segment>/?.*), $\{segment}
+
+        - id: contentsearch-service
+          uri: lb://contentsearch-service
+          predicates:
+            - Path=/contentsearch-service/**
+          filters:
+            - RewritePath=/contentsearch-service(?<segment>/?.*), $\{segment}
+
+
+        - id: contentanalysing-service
+          uri: lb://contentanalysing-service
+          predicates:
+            - Path=/contentanalysing-service/**
+          filters:
+            - RewritePath=/contentanalysing-service(?<segment>/?.*), $\{segment}
+
+
+        - id: graphcommand-service
+          uri: lb://graphcommand-service
+          predicates:
+            - Path=/graphcommand-service/**
+          filters:
+            - RewritePath=/graphcommand-service(?<segment>/?.*), $\{segment}
+
+
+        - id: graphquery-service
+          uri: lb://graphquery-service
+          predicates:
+            - Path=/graphquery-service/**
+          filters:
+            - RewritePath=/graphquery-service(?<segment>/?.*), $\{segment}
+
+
+        - id: questionanswer-service
+          uri: lb://questionanswer-service
+          predicates:
+            - Path=/questionanswer-service/**
+          filters:
+            - RewritePath=/questionanswer-service(?<segment>/?.*), $\{segment}
+
+        - id: learnzilla-webapp
+          uri: lb://learnzilla-webapp
+          predicates:
+            - Path=/**
+          filters:
+            - RewritePath=(?<segment>/?.*), $\{segment}
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+

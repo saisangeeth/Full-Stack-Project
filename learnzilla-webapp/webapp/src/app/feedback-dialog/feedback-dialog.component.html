@@ -1,0 +1,43 @@
+<mat-dialog-content class="mat-typography">
+
+
+    <div [formGroup]="feedbackForm">
+        <div fxLayout="column" fxFlex="100%" fxLayoutAlign="space-around center">
+
+            <h1 class="heading">Feedback</h1>
+
+
+
+            <p class="text1">We want to know what you thought of your experience so we'd love to hear your feedback</p>
+
+
+
+
+
+
+
+            <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="false"></ngb-rating>
+
+       
+
+
+
+            <mat-form-field class="example-full-width" appearance="outline" required>
+                <mat-label class="size">Your Feedback</mat-label>
+                <textarea matInput placeholder="Say what you think about this program"
+                    formControlName="feedback"></textarea>
+            </mat-form-field>
+
+
+
+
+            <p class="text2">Thanks for taking the time to give us feedback.</p>
+
+        </div>
+
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="send" (click)="onSubmit()">Submit</button>
+</mat-dialog-actions>

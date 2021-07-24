@@ -1,0 +1,31 @@
+<mat-toolbar class="header">
+    <span>Play Quiz</span>
+  </mat-toolbar>
+
+<div class="sect1" *ngFor="let question of questionData">
+    <div class="heading">
+        <!-- {{question.programDomain}} -->         
+            {{question.quizTitle}}
+    </div>
+
+    <div class="sect2" *ngFor="let que of question.questions; let i = index">
+
+        <p class="questyle">          
+            Que:{{i+1}}  {{que.questionTitle}} 
+           
+       </p>
+
+        <div class="menu" *ngFor="let op of que.options">
+            <p class="opstyle"> 
+                <label for="{{op.optionTitle}}">
+                    <input id="{{op.optionTitle}}" [value]='op.optionTitle' type="radio" [(ngModel)]="radioSelected">
+                    {{op.optionTitle}}
+                </label>
+            </p>
+        </div>
+
+
+    </div>
+
+
+</div>

@@ -1,0 +1,9 @@
+my:
+  greeting: Testing Config Server
+  list:
+    values: One, two , three
+
+db:
+  connection: Connecting-from-application.yml
+  host: 127.0.0.1
+  port: 1200

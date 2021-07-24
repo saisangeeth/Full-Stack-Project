@@ -1,0 +1,57 @@
+<div class="sect1">
+  <div fxLayout="row" fxFlex ="100%" fxLayout.xs="column">
+
+    <div class="left" fxLayout="column" fxFlex="35%" fxFill>
+        <div class="leftside">
+            <div class="spacer"></div>
+            <div class="heading" (click)="onClick()">
+               <img class="logo" src="../../assets/logo2.png"> LearnZilla
+            </div>
+             
+            <div [formGroup]="logIn" class="signinform">
+
+                <label class="labelstyle" for="exampleInputEmail1">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+                
+                <label  class="labelstyle" for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password">
+             
+                <button class="btn-grad-o" (click)="onLogin()"><span>Login</span></button>
+
+                <div class="register">
+                    <div class="text">
+                        <p style="color:cornsilk">or</p>                       
+                   </div>
+                   
+                <button (click)="onotpclick()" class="btn-grad-w"><span>Login via OTP</span></button>
+                </div>
+              
+                    <div class="text1">
+                      
+                        <p>                      
+                        <a mat-button [routerLink]="'/register'" ><p style="font-size:18px">Dont have an account ? Register here..</p></a>
+                        </p>
+
+                    </div>
+                   
+                
+               
+
+
+            </div> 
+        </div>
+    </div>
+
+    <div class="right" fxLayout="column" fxFlex="65%" fxFill fxHide fxShow.gt-xs> 
+        <div class="rightside">
+            <div class="slogan">
+                Raise your <br><br><br><br>
+                knowledge with us...
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+</div>
+
